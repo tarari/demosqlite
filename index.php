@@ -1,7 +1,11 @@
 <?php
 
     require 'config.php';
-    var_dump($routes);
+    require 'helper.php';
+
+    $controller=router($routes);
     
+    require CONTR.'/'.$controller.'.php';
+
    
     

@@ -6,5 +6,4 @@
             <input type="submit" value="Add">
         </form>
     </main>
-</body>
-</html>
+    <?php include 'partials/footer.view.php'; ?>
