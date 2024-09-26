@@ -7,5 +7,8 @@
     $routes=[
         'home',
         'add',
-        'admin'
+        'admin',
+        'add-book',
+        'delete',
+        'edit'
     ];
