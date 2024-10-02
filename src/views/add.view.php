@@ -8,19 +8,19 @@
                     <label class="px-2" for="title">Title</label>
                 </div>
                 <div>
-                    <input class="px-2 text-sm" type="text" placeholder="title">
+                    <input class="px-2 text-sm" type="text" name="title" placeholder="title">
                 </div>
                 <div>
                     <label class="px-2" for="author">Author</label>
                 </div>
                 <div>   
-                <input class="px-2 text-sm" type="text" placeholder="Author">
+                <input class="px-2 text-sm" type="text" name="author" placeholder="Author">
                 </div>
                 <div>
                     <label class="px-2" for="year">Year</label>
                 </div>
                 <div>   
-                <input class="px-2 text-sm" type="text" placeholder="Year">
+                <input class="px-2 text-sm" type="number" name="year" placeholder="Year">
                 </div>
                 <div class="col-span-2 mx-auto">
                     <button class="bg-red-600 text-white px-3 py-1 rounded" type="submit">Add</button>
