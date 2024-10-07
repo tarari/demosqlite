@@ -1,5 +1,6 @@
 <?php 
    
+   
     if(!empty($_POST) 
         && !empty($_POST['title']) 
         && !empty($_POST['author']) 
@@ -12,12 +13,11 @@
         //conectar a BBDD
         $db=connectMysql($dsn,$dbuser,$dbpassword);
         
-        //insertar
-        $stmt=$db->prepare(
-            "INSERT INTO books(title,author,year) VALUES(?,?,?)");
-            //$stmt->bindParam(':title',$title);
-           
-        if($stmt->execute([$title,$author,$year])){
+        if(insert($db,'books',[
+            'title'=>$title,
+            'author'=>$author,
+            'year'=>$year,
+            ])){
             //volver a home
             header('Location:home');
         }else{
