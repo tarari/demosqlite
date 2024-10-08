@@ -29,13 +29,19 @@
 
     //funcion de consulta
 
-    function query($db,$query){
-    
+    function query(PDO $db,string $query,array $data=null){
         $stmt=$db->prepare($query);
-        if( $stmt->execute()){
-            $items=$stmt->fetchAll();
+        if ($data){
+            if(is_array($data)){
+                        $stmt->execute($data);
+            }
         }
-      return $items;
+        else{
+            $stmt->execute();
+        }
+        $items=$stmt->fetchAll();
+        return $items;
+    
     }
 
     function insert($db,$table,$data){
@@ -62,30 +68,17 @@
                 die($e->getMessage());
             }
         }
+        else{
+            throw new Exception("Exception: No data to insert");
+        }
     }
     
-    function update($db,$query){
-        try{
-            $stmt=$db->prepare($query);
-            if($stmt->execute()){
-               return true;
-            }
-            return false;
-       }catch(PDOException $e){
-           die($e->getMessage());
-       }
+    function update(PDO $db,string $table,array $data){
+        
       
     }
 
-    function delete($db,$query){
-        try{
-            $stmt=$db->prepare($query);
-            if($stmt->execute()){
-               return true;
-            }
-            return false;
-       }catch(PDOException $e){
-           die($e->getMessage());
-       }
+    function delete(PDO $db,string $table,array $condition){
+       
       
     }
