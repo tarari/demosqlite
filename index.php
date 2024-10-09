@@ -1,7 +1,7 @@
 <?php
-
-    require 'config.php';
     require 'helper.php';
+    require 'config.php';
+   
     require 'src/database.php';
    
     //$db=connectSqlite($dbname);
