@@ -31,9 +31,9 @@
 
     function query(PDO $db,string $query,array $data=null){
         $stmt=$db->prepare($query);
-        if ($data){
+        if($data){
             if(is_array($data)){
-                        $stmt->execute($data);
+                $stmt->execute($data);
             }
         }
         else{
@@ -50,7 +50,6 @@
             $columns=array_keys($data);
             $values=array_values($data); 
             $lista_campos=implode(',',$columns);
-            $lista_values="'".implode("','",$values)."'";
           
             $array_parms=[];
             for($i=0;$i<count($data);$i++){
@@ -73,12 +72,44 @@
         }
     }
     
-    function update(PDO $db,string $table,array $data){
-        
-      
+    function update(PDO $db,string $table,int $id,array $data){
+         
+       if(is_array($data)){
+        $lista_assign=[];
+        foreach($data as $key=>$value){
+            $lista_assign[]=$key.'=?';
+        }
+        $lista_assign=implode(',',$lista_assign);
+        $sql="UPDATE  {$table} SET {$lista_assign} WHERE id={$id}";
+        try{ 
+            $stmt=$db->prepare($sql);
+           
+            if($stmt->execute(array_values($data))){
+                return true;
+            }
+            return false;
+        }catch(PDOException $e){
+            die($e->getMessage());
+        }
     }
-
-    function delete(PDO $db,string $table,array $condition){
-       
+    else{
+        throw new Exception("Exception: No data to modify");
+    }
+}
       
+    
+
+    function delete(PDO $db,string $table,int $id){
+       
+        $sql="DELETE FROM {$table} WHERE id=?";
+        try{
+                $stmt=$db->prepare($sql);
+            if($stmt->execute([$id])){
+                return true;
+            }
+            else return false;
+        }catch(PDOException $e){
+            return false;
+        }
+       
     }
