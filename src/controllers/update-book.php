@@ -7,7 +7,7 @@
             $author=filter_input(INPUT_POST,'author');
             $year=filter_input(INPUT_POST,'year');
             $id=filter_input(INPUT_GET,'id');
-            $db=connectMysql($dsn,$dbuser,$dbpassword);
+            //$db=connectMysql($dsn,$dbuser,$dbpassword);
             if(update($db,'books',$id,[
                 'title'=>$title,
                 'author'=>$author,

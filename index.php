@@ -4,7 +4,7 @@
    
     require 'src/database.php';
    
-    //$db=connectSqlite($dbname);
+    $db=connectSqlite($dbname);
     
     $controller=router($routes);
     

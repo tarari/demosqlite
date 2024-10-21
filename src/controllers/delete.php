@@ -1,6 +1,6 @@
 <?php
    $id=filter_input(INPUT_GET,'id');
-   $db=connectMysql($dsn,$dbuser,$dbpassword);
+   //$db=connectMysql($dsn,$dbuser,$dbpassword);
    if(delete($db,'books',$id)){
      header('Location:admin');
    }

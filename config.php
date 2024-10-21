@@ -8,12 +8,12 @@
     require 'src/env.php';
     loadEnv('.env');
 
-    $dbhost=$_ENV['DB_HOST'];
+    //$dbhost=$_ENV['DB_HOST'];
     $dbname=$_ENV['DB_NAME'];
-    $dbuser=$_ENV['DB_USER'];
-    $dbpassword=$_ENV['DB_PASSWORD'];
+    //$dbuser=$_ENV['DB_USER'];
+    //$dbpassword=$_ENV['DB_PASSWORD'];
 
-    $dsn='mysql:host='.$dbhost.';dbname='.$dbname;
+    //$dsn='mysql:host='.$dbhost.';dbname='.$dbname;
    
     //routes
 

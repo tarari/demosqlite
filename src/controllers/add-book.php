@@ -11,7 +11,7 @@
             $year=filter_input(INPUT_POST,'year');
         
         //conectar a BBDD
-        $db=connectMysql($dsn,$dbuser,$dbpassword);
+       // $db=connectMysql($dsn,$dbuser,$dbpassword);
         
         if(insert($db,'books',[
             'title'=>$title,

@@ -3,7 +3,7 @@
     //funciones de conexion
     function connectSqlite($dbname){
         try{
-            $db=new PDO('sqlite:'.__DIR__.'/database/'.$dbname);
+            $db=new PDO('sqlite:'.__DIR__.'/db/'.$dbname);
             $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
