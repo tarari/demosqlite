@@ -13,8 +13,9 @@
         }
         if(in_array($uri[0],$routes,true)){
             return $uri[0];
+        }else{
+            return 'home';
         }
-        http_response_code(404);
 
     }
 
